@@ -35,7 +35,9 @@ const createSurvey = async (req, res) => {
 
 const getSurveys = async (req, res) => {
 	try {
-		const surveys = await Survey.findAll();
+		const surveys = await Survey.findAll({
+			order: [['createdAt', 'ASC']],
+		});
 
 		res.json({ ok: true, surveys });
 	} catch (error) {

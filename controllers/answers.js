@@ -16,6 +16,7 @@ const getAnswers = async (req, res) => {
 
 		const answers = await Answer.findAll({
 			where: { survey_key: key },
+			order: [['createdAt', 'ASC']],
 		});
 
 		res.json({ ok: true, answers });

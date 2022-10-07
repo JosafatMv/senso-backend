@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 const cors = require('cors');
 const { dbConnection } = require('./database/config');
 
@@ -20,6 +21,6 @@ app.use('/api/surveys', require('./routes/surveys'));
 app.use('/api/answers', require('./routes/answers'));
 
 // Escuchar peticiones
-app.listen(4000, () => {
-	console.log(`Servidor corriendo 4000`);
+app.listen(process.env.PORT, () => {
+	console.log(`Servidor corriendo ${process.env.PORT}`);
 });
